@@ -10,3 +10,10 @@ expandButton.onclick = function (e) {
     clients.classList.add('less');
   }
 };
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    { pageLanguage: 'en' },
+    'google_translate_element'
+  );
+}

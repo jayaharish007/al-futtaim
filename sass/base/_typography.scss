@@ -1,6 +1,6 @@
 .heading-primary {
   color: $color-black;
-  line-height: 1.4;
+  line-height: 1.2;
   font-size: 4.5rem;
 
   @include viewport(tab-port) {
@@ -84,7 +84,7 @@
 }
 
 .paragraph {
-  line-height: 2;
+  line-height: 1.5;
   color: $color-gray-text;
 }
 

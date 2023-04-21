@@ -5,22 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Al Futtaim &mdash; 💯</title>
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/logo.jpeg" type="image/x-icon" />
 
     <!-- Development CSS -->
     <!-- <link rel="stylesheet" href="css/style.css" /> -->
 
     <!-- Deployable CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.min.css" />
   </head>
   <body>
     <header class="header">
       <div class="header__menu-bar">
-        <div class="header__logo-box">
+        <div class="header__logo-box logo-holder">
           <svg class="company-logo" />
-          <svg class="logo" />
         </div>
-
         <nav class="header__nav">
           <ul class="header__nav-list">
             <li class="header__nav-item">
@@ -72,8 +70,13 @@
             <li class="header__nav-item">
               <a href="#" class="header__nav-link">Contact Us</a>
             </li>
+            <div
+              id="google_translate_element"
+              style="height: 25px; overflow: hidden"
+            ></div>
           </ul>
         </nav>
+        <svg class="saudi-logo" />
       </div>
       <div class="header__content u-margin-bottom-big">
         <div class="header__hero-img-box">
@@ -86,6 +89,11 @@
         </div>
 
         <div class="header__text-box">
+          <h1 class="heading-primary u-margin-bottom-mid">
+            <span class="heading-primary--main">
+              <span class="emphasis">Welcome to Al Futtaim companies</span>
+            </span>
+          </h1>
           <h1 class="heading-primary u-margin-bottom-small">
             <span class="heading-primary--sub"> If you can Imagine it, </span>
             <span class="heading-primary--main">
@@ -119,7 +127,7 @@
 
           <div class="who-we-are__right">
             <p class="who-we-are__paragraph paragraph">
-              <span class="emphasis">2 decades</span>
+              <span class="emphasis">20+</span>
               Years of Experience
             </p>
 
@@ -586,9 +594,13 @@
 
       <div class="footer__row-3 u-margin-top-small">
         <svg class="company-logo" />
-        <svg class="logo"></svg>
       </div>
     </footer>
   </body>
   <script src="index.js"></script>
+  <script
+    type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit"
+  ></script>
 </html>

@@ -72,23 +72,22 @@ body {
   display: inline-block;
 }
 
-.logo {
-  width: 18rem;
-  height: 12rem;
+.saudi-logo {
+  width: 12rem;
+  height: 8rem;
   cursor: pointer;
   background-image: url(../../img/favicon.png);
   background-size: cover;
   background-repeat: no-repeat;
 }
 @media only screen and (max-width: 50em) {
-  .logo {
+  .saudi-logo {
     margin-left: 2rem;
   }
 }
 
 .company-logo {
-  width: 25rem;
-  height: 12rem;
+  width: 16rem;
   cursor: pointer;
   background-image: url(../../img/logo.png);
   background-size: cover;
@@ -120,7 +119,7 @@ body {
 
 .heading-primary {
   color: #000;
-  line-height: 1.4;
+  line-height: 1.2;
   font-size: 4.5rem;
 }
 @media only screen and (max-width: 56.25em) {
@@ -203,7 +202,7 @@ body {
 }
 
 .paragraph {
-  line-height: 2;
+  line-height: 1.5;
   color: #656565;
 }
 
@@ -327,7 +326,6 @@ body {
 }
 
 .header {
-  background-image: url("../img/svg/header-bg-img.svg");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
