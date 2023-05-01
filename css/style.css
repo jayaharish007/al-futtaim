@@ -87,11 +87,12 @@ body {
 }
 
 .company-logo {
-  width: 16rem;
+  width: 26rem;
   cursor: pointer;
   background-image: url(../../img/logo.png);
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
 }
 .company-logo + .logo {
   margin-left: 1rem;
@@ -1023,6 +1024,3462 @@ body {
     flex-wrap: wrap;
     gap: 4rem;
   }
+}
+
+.about-page .header__hero-img {
+  height: calc(100vh - 180px);
+}
+
+.general-contract .carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background: #a5e1ef;
+  perspective: 5000px;
+  margin-top: 2rem;
+}
+.general-contract .carousel.loaded #wrapper:before {
+  transition-delay: 0.5s;
+  transform: scaleY(0);
+}
+.general-contract .carousel input[type=checkbox] {
+  position: absolute;
+  z-index: 999;
+  width: 150px;
+  height: 500px;
+  transform: translateY(-25px);
+  opacity: 0;
+  left: calc(50% - 75px);
+  cursor: pointer;
+}
+.general-contract .carousel input[type=checkbox]:hover {
+  cursor: pointer;
+}
+.general-contract .carousel input[type=checkbox]:hover:checked ~ #wrapper a span:after {
+  transform: scaleX(1);
+}
+.general-contract .carousel input[type=checkbox]:hover ~ #wrapper a {
+  color: #051439;
+}
+.general-contract .carousel input[type=checkbox]:hover ~ #wrapper a:before, .general-contract .carousel input[type=checkbox]:hover ~ #wrapper a:after {
+  transform: scaleY(1);
+}
+.general-contract .carousel input[type=checkbox]:checked ~ #wrapper {
+  transform: rotateY(-180deg);
+  transition-delay: 0.1s;
+}
+.general-contract .carousel input[type=checkbox]:checked ~ #wrapper .back p {
+  transition: transform 0.2s ease-in-out;
+  transform: rotateY(-180deg) scaleX(-1) scaleY(1);
+  transition-delay: 1s;
+}
+.general-contract .carousel input[type=checkbox]:checked ~ #wrapper .back p:before {
+  transform: scaleY(0);
+  transition-delay: 1.3s;
+}
+.general-contract .carousel input[type=checkbox]:checked ~ #wrapper a {
+  transform: translateX(-50%) rotateY(180deg);
+  animation: none;
+  font-size: 0;
+}
+.general-contract .carousel input[type=checkbox]:checked ~ #wrapper a span {
+  font-size: 20px;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  transition-delay: 2s;
+  position: relative;
+  transform: rotateY(-180deg) translateY(25px);
+}
+.general-contract .carousel input[type=checkbox]:checked ~ #wrapper a span:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.2s cubic-bezier(1, 0.885, 0.72, 1);
+}
+.general-contract .carousel input[type=checkbox]:checked ~ #wrapper a:before {
+  display: none;
+}
+.general-contract .carousel input[type=checkbox]:checked ~ #wrapper a:after {
+  display: none;
+}
+.general-contract .carousel input[type=checkbox]:checked ~ #wrapper .bg {
+  transition: transform 0.2s ease-in-out, background 0s ease-in-out;
+  transition-delay: 0s, 0.2s !important;
+  transform: scaleX(1);
+  background: #ffc666;
+}
+.general-contract .carousel input[type=checkbox]:checked ~ #wrapper .bg:before {
+  transform: translateY(0%);
+  transition-delay: 1.75s;
+}
+.general-contract .carousel input[type=checkbox]:checked ~ #wrapper .slides,
+.general-contract .carousel input[type=checkbox]:checked ~ #wrapper .headings,
+.general-contract .carousel input[type=checkbox]:checked ~ #wrapper .nav {
+  transition: 0.2s ease-in-out;
+  opacity: 0;
+}
+.general-contract .carousel #wrapper {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 10% 10% 10% 10%;
+  grid-template-rows: 20% 20% 20% 10% 10% 10% 10%;
+  background: #051439;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.general-contract .carousel #wrapper:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 150%;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  background: linear-gradient(to bottom, #ffc666 10%, #fb6962 10%);
+  transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: scaleY(1);
+  transform-origin: bottom;
+}
+.general-contract .carousel #wrapper * {
+  transform-style: preserve-3d;
+}
+.general-contract .carousel #wrapper *:before, .general-contract .carousel #wrapper *:after {
+  transform-style: preserve-3d;
+}
+.general-contract .carousel #wrapper .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(-180deg);
+  background: transparent;
+  transform-style: preserve-3d;
+}
+.general-contract .carousel #wrapper .back p {
+  position: absolute;
+  height: auto;
+  width: 80%;
+  left: 10%;
+  top: 10%;
+  padding: 10%;
+  box-sizing: border-box;
+  transform: rotateY(-180deg) scaleX(-1) scaleY(0);
+  font-family: "Inconsolata";
+  font-size: 20px;
+  line-height: 1.5;
+  display: inline-block;
+  transform-origin: bottom;
+  opacity: 0;
+}
+.general-contract .carousel #wrapper .back p:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #325dc6;
+  left: 0;
+  top: 0;
+  transform-origin: top;
+  transform: scaleY(1);
+  transition: all 0.2s cubic-bezier(1, 0.885, 0.72, 1);
+}
+.general-contract .carousel #wrapper .bg {
+  position: absolute;
+  width: 100%;
+  height: 105%;
+  background: #fff;
+  left: 0;
+  top: 0;
+  transition: transform 0.2s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+.general-contract .carousel #wrapper .bg:before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: #fb6962;
+  border-radius: 100%;
+  bottom: -150px;
+  left: calc(50% - 150px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateY(100%);
+}
+.general-contract .carousel #wrapper .nav {
+  transform: translateX(150px) translateY(185px) scale(0.75);
+  z-index: 9;
+}
+.general-contract .carousel #wrapper input[type=radio] {
+  position: relative;
+  grid-row: 4;
+  grid-column: 5;
+  width: 100%;
+  height: 150%;
+  opacity: 0;
+  cursor: pointer;
+  transform: translateX(100px) translateY(140px) scale(0.75);
+}
+.general-contract .carousel #wrapper input[type=radio]:hover ~ .nav .arrow:first-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:hover ~ .nav .arrow:first-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .bg {
+  transition-delay: 1s;
+  transform: scaleX(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ a {
+  color: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings p {
+  color: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1 .char:before {
+  color: #fb6962;
+  -webkit-text-stroke: 0px #fb6962;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .bg {
+  transition-delay: 1s;
+  background: #325dc6;
+  transform: scaleX(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings p:before {
+  transition: transform 0.3s ease-in-out;
+  transition-delay: 0.3s;
+  background: #ffc666;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:after {
+  background: #ffc666;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1 .char:before {
+  color: #fb6962;
+  -webkit-text-stroke: 0px #fb6962;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1) {
+  position: relative;
+  z-index: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked {
+  z-index: 0;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .back p:nth-of-type(1) {
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ a {
+  animation: jumpin1 2s ease-in-out 1 forwards;
+}
+@keyframes jumpin1 {
+  0% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  25% {
+    transform: translateX(-50%) translateY(200px);
+  }
+  75% {
+    transform: translateX(-50%) translateY(200px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings p:nth-of-type(1) {
+  transform: scaleX(1);
+  transition-delay: 1.5s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings p:nth-of-type(1):before {
+  transition-delay: 1.8s;
+  transform: scaleX(0);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1):after {
+  transform: translateX(0);
+  transition: all 1s cubic-bezier(1, 0.885, 0.72, 1);
+  transition-delay: 0.75s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) span {
+  transition-delay: 0.75s;
+  transform: scale(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) span.whitespace {
+  width: 2.5%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(1):before {
+  transition-delay: 1.1178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(2):before {
+  transition-delay: 1.0928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(3):before {
+  transition-delay: 1.0678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(4):before {
+  transition-delay: 1.0428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(5):before {
+  transition-delay: 1.0178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(6):before {
+  transition-delay: 0.9928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(7):before {
+  transition-delay: 0.9678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(8):before {
+  transition-delay: 0.9428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(9):before {
+  transition-delay: 0.9178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(10):before {
+  transition-delay: 0.8928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(11):before {
+  transition-delay: 0.8678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(12):before {
+  transition-delay: 0.8428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(13):before {
+  transition-delay: 0.8178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(14):before {
+  transition-delay: 0.7928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(15):before {
+  transition-delay: 0.7678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(16):before {
+  transition-delay: 0.7428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(17):before {
+  transition-delay: 0.7178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(18):before {
+  transition-delay: 0.6928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(19):before {
+  transition-delay: 0.6678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(1) .char:nth-of-type(20):before {
+  transition-delay: 0.6428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(1):before {
+  transition-delay: 1.2607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(2):before {
+  transition-delay: 1.2357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(3):before {
+  transition-delay: 1.2107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(4):before {
+  transition-delay: 1.1857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(5):before {
+  transition-delay: 1.1607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(6):before {
+  transition-delay: 1.1357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(7):before {
+  transition-delay: 1.1107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(8):before {
+  transition-delay: 1.0857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(9):before {
+  transition-delay: 1.0607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(10):before {
+  transition-delay: 1.0357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(11):before {
+  transition-delay: 1.0107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(12):before {
+  transition-delay: 0.9857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(13):before {
+  transition-delay: 0.9607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(14):before {
+  transition-delay: 0.9357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(15):before {
+  transition-delay: 0.9107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(16):before {
+  transition-delay: 0.8857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(17):before {
+  transition-delay: 0.8607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(18):before {
+  transition-delay: 0.8357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(19):before {
+  transition-delay: 0.8107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(2) .char:nth-of-type(20):before {
+  transition-delay: 0.7857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(1):before {
+  transition-delay: 1.4035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(2):before {
+  transition-delay: 1.3785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(3):before {
+  transition-delay: 1.3535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(4):before {
+  transition-delay: 1.3285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(5):before {
+  transition-delay: 1.3035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(6):before {
+  transition-delay: 1.2785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(7):before {
+  transition-delay: 1.2535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(8):before {
+  transition-delay: 1.2285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(9):before {
+  transition-delay: 1.2035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(10):before {
+  transition-delay: 1.1785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(11):before {
+  transition-delay: 1.1535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(12):before {
+  transition-delay: 1.1285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(13):before {
+  transition-delay: 1.1035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(14):before {
+  transition-delay: 1.0785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(15):before {
+  transition-delay: 1.0535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(16):before {
+  transition-delay: 1.0285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(17):before {
+  transition-delay: 1.0035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(18):before {
+  transition-delay: 0.9785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(19):before {
+  transition-delay: 0.9535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .headings h1:nth-of-type(1) .word:nth-of-type(3) .char:nth-of-type(20):before {
+  transition-delay: 0.9285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .slides {
+  transform: translateX(-50%);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .slides .slide:nth-of-type(3) + .slide {
+  margin-right: 37.5%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .slides .slide:nth-of-type(4) + .slide {
+  margin-right: 25%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .slides .slide:nth-of-type(5) + .slide {
+  margin-right: 40%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .slides .slide:nth-of-type(1) {
+  transform: translateX(0%) scaleY(1);
+  transition-delay: 0.4s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .slides .slide:nth-of-type(1):after {
+  transition: all 0.2s cubic-bezier(1, 0.885, 0.72, 1);
+  transform: scaleY(0);
+  transition-delay: 0.8s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked ~ .slides .slide:nth-of-type(1):before {
+  transition: transform 5s ease-in-out, opacity 3s ease-in-out;
+  transform: scale(1);
+  opacity: 0.15;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input {
+  z-index: 2;
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked + input + input + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked:first-of-type:checked ~ .nav .arrow:first-of-type {
+  opacity: 0.25;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked:nth-of-type(6) {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type {
+  opacity: 0.25;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type:before, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type:after, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked:nth-of-type(6):hover ~ .nav .arrow:first-of-type:before, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked:nth-of-type(6):checked ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked:nth-of-type(6):hover ~ .nav .arrow:first-of-type:after, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(1):checked:nth-of-type(6):checked ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .bg {
+  transition-delay: 1s;
+  transform: scaleX(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ a {
+  color: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings p {
+  color: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1 .char:before {
+  color: #fb6962;
+  -webkit-text-stroke: 0px #fb6962;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .bg {
+  transition-delay: 1s;
+  background: #325dc6;
+  transform: scaleX(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings p:before {
+  transition: transform 0.3s ease-in-out;
+  transition-delay: 0.3s;
+  background: #ffc666;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:after {
+  background: #ffc666;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1 .char:before {
+  color: #fb6962;
+  -webkit-text-stroke: 0px #fb6962;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2) {
+  position: relative;
+  z-index: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked {
+  z-index: 0;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .back p:nth-of-type(2) {
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ a {
+  animation: jumpin2 2s ease-in-out 1 forwards;
+}
+@keyframes jumpin2 {
+  0% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  25% {
+    transform: translateX(-50%) translateY(200px);
+  }
+  75% {
+    transform: translateX(-50%) translateY(200px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings p:nth-of-type(2) {
+  transform: scaleX(1);
+  transition-delay: 1.5s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings p:nth-of-type(2):before {
+  transition-delay: 1.8s;
+  transform: scaleX(0);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2):after {
+  transform: translateX(0);
+  transition: all 1s cubic-bezier(1, 0.885, 0.72, 1);
+  transition-delay: 0.75s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) span {
+  transition-delay: 0.75s;
+  transform: scale(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) span.whitespace {
+  width: 2.5%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(1):before {
+  transition-delay: 1.1178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(2):before {
+  transition-delay: 1.0928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(3):before {
+  transition-delay: 1.0678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(4):before {
+  transition-delay: 1.0428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(5):before {
+  transition-delay: 1.0178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(6):before {
+  transition-delay: 0.9928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(7):before {
+  transition-delay: 0.9678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(8):before {
+  transition-delay: 0.9428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(9):before {
+  transition-delay: 0.9178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(10):before {
+  transition-delay: 0.8928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(11):before {
+  transition-delay: 0.8678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(12):before {
+  transition-delay: 0.8428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(13):before {
+  transition-delay: 0.8178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(14):before {
+  transition-delay: 0.7928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(15):before {
+  transition-delay: 0.7678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(16):before {
+  transition-delay: 0.7428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(17):before {
+  transition-delay: 0.7178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(18):before {
+  transition-delay: 0.6928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(19):before {
+  transition-delay: 0.6678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(1) .char:nth-of-type(20):before {
+  transition-delay: 0.6428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(1):before {
+  transition-delay: 1.2607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(2):before {
+  transition-delay: 1.2357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(3):before {
+  transition-delay: 1.2107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(4):before {
+  transition-delay: 1.1857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(5):before {
+  transition-delay: 1.1607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(6):before {
+  transition-delay: 1.1357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(7):before {
+  transition-delay: 1.1107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(8):before {
+  transition-delay: 1.0857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(9):before {
+  transition-delay: 1.0607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(10):before {
+  transition-delay: 1.0357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(11):before {
+  transition-delay: 1.0107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(12):before {
+  transition-delay: 0.9857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(13):before {
+  transition-delay: 0.9607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(14):before {
+  transition-delay: 0.9357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(15):before {
+  transition-delay: 0.9107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(16):before {
+  transition-delay: 0.8857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(17):before {
+  transition-delay: 0.8607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(18):before {
+  transition-delay: 0.8357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(19):before {
+  transition-delay: 0.8107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(2) .char:nth-of-type(20):before {
+  transition-delay: 0.7857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(1):before {
+  transition-delay: 1.4035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(2):before {
+  transition-delay: 1.3785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(3):before {
+  transition-delay: 1.3535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(4):before {
+  transition-delay: 1.3285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(5):before {
+  transition-delay: 1.3035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(6):before {
+  transition-delay: 1.2785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(7):before {
+  transition-delay: 1.2535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(8):before {
+  transition-delay: 1.2285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(9):before {
+  transition-delay: 1.2035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(10):before {
+  transition-delay: 1.1785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(11):before {
+  transition-delay: 1.1535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(12):before {
+  transition-delay: 1.1285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(13):before {
+  transition-delay: 1.1035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(14):before {
+  transition-delay: 1.0785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(15):before {
+  transition-delay: 1.0535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(16):before {
+  transition-delay: 1.0285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(17):before {
+  transition-delay: 1.0035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(18):before {
+  transition-delay: 0.9785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(19):before {
+  transition-delay: 0.9535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .headings h1:nth-of-type(2) .word:nth-of-type(3) .char:nth-of-type(20):before {
+  transition-delay: 0.9285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .slides {
+  transform: translateX(-100%);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .slides .slide:nth-of-type(3) + .slide {
+  margin-right: 37.5%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .slides .slide:nth-of-type(4) + .slide {
+  margin-right: 25%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .slides .slide:nth-of-type(5) + .slide {
+  margin-right: 40%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .slides .slide:nth-of-type(2) {
+  transform: translateX(100%) scaleY(1);
+  transition-delay: 0.4s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .slides .slide:nth-of-type(2):after {
+  transition: all 0.2s cubic-bezier(1, 0.885, 0.72, 1);
+  transform: scaleY(0);
+  transition-delay: 0.8s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked ~ .slides .slide:nth-of-type(2):before {
+  transition: transform 5s ease-in-out, opacity 3s ease-in-out;
+  transform: scale(1);
+  opacity: 0.15;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input {
+  z-index: 3;
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked + input + input + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked:first-of-type:checked ~ .nav .arrow:first-of-type {
+  opacity: 0.25;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked:nth-of-type(6) {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type {
+  opacity: 0.25;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type:before, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type:after, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked:nth-of-type(6):hover ~ .nav .arrow:first-of-type:before, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked:nth-of-type(6):checked ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked:nth-of-type(6):hover ~ .nav .arrow:first-of-type:after, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(2):checked:nth-of-type(6):checked ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .bg {
+  transition-delay: 1s;
+  transform: scaleX(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ a {
+  color: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings p {
+  color: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1 .char:before {
+  color: #fb6962;
+  -webkit-text-stroke: 0px #fb6962;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .bg {
+  transition-delay: 1s;
+  background: #325dc6;
+  transform: scaleX(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings p:before {
+  transition: transform 0.3s ease-in-out;
+  transition-delay: 0.3s;
+  background: #ffc666;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:after {
+  background: #ffc666;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1 .char:before {
+  color: #fb6962;
+  -webkit-text-stroke: 0px #fb6962;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3) {
+  position: relative;
+  z-index: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked {
+  z-index: 0;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .back p:nth-of-type(3) {
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ a {
+  animation: jumpin3 2s ease-in-out 1 forwards;
+}
+@keyframes jumpin3 {
+  0% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  25% {
+    transform: translateX(-50%) translateY(200px);
+  }
+  75% {
+    transform: translateX(-50%) translateY(200px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings p:nth-of-type(3) {
+  transform: scaleX(1);
+  transition-delay: 1.5s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings p:nth-of-type(3):before {
+  transition-delay: 1.8s;
+  transform: scaleX(0);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3):after {
+  transform: translateX(0);
+  transition: all 1s cubic-bezier(1, 0.885, 0.72, 1);
+  transition-delay: 0.75s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) span {
+  transition-delay: 0.75s;
+  transform: scale(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) span.whitespace {
+  width: 2.5%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(1):before {
+  transition-delay: 1.1178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(2):before {
+  transition-delay: 1.0928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(3):before {
+  transition-delay: 1.0678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(4):before {
+  transition-delay: 1.0428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(5):before {
+  transition-delay: 1.0178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(6):before {
+  transition-delay: 0.9928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(7):before {
+  transition-delay: 0.9678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(8):before {
+  transition-delay: 0.9428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(9):before {
+  transition-delay: 0.9178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(10):before {
+  transition-delay: 0.8928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(11):before {
+  transition-delay: 0.8678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(12):before {
+  transition-delay: 0.8428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(13):before {
+  transition-delay: 0.8178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(14):before {
+  transition-delay: 0.7928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(15):before {
+  transition-delay: 0.7678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(16):before {
+  transition-delay: 0.7428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(17):before {
+  transition-delay: 0.7178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(18):before {
+  transition-delay: 0.6928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(19):before {
+  transition-delay: 0.6678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(1) .char:nth-of-type(20):before {
+  transition-delay: 0.6428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(1):before {
+  transition-delay: 1.2607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(2):before {
+  transition-delay: 1.2357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(3):before {
+  transition-delay: 1.2107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(4):before {
+  transition-delay: 1.1857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(5):before {
+  transition-delay: 1.1607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(6):before {
+  transition-delay: 1.1357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(7):before {
+  transition-delay: 1.1107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(8):before {
+  transition-delay: 1.0857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(9):before {
+  transition-delay: 1.0607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(10):before {
+  transition-delay: 1.0357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(11):before {
+  transition-delay: 1.0107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(12):before {
+  transition-delay: 0.9857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(13):before {
+  transition-delay: 0.9607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(14):before {
+  transition-delay: 0.9357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(15):before {
+  transition-delay: 0.9107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(16):before {
+  transition-delay: 0.8857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(17):before {
+  transition-delay: 0.8607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(18):before {
+  transition-delay: 0.8357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(19):before {
+  transition-delay: 0.8107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(2) .char:nth-of-type(20):before {
+  transition-delay: 0.7857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(1):before {
+  transition-delay: 1.4035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(2):before {
+  transition-delay: 1.3785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(3):before {
+  transition-delay: 1.3535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(4):before {
+  transition-delay: 1.3285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(5):before {
+  transition-delay: 1.3035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(6):before {
+  transition-delay: 1.2785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(7):before {
+  transition-delay: 1.2535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(8):before {
+  transition-delay: 1.2285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(9):before {
+  transition-delay: 1.2035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(10):before {
+  transition-delay: 1.1785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(11):before {
+  transition-delay: 1.1535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(12):before {
+  transition-delay: 1.1285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(13):before {
+  transition-delay: 1.1035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(14):before {
+  transition-delay: 1.0785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(15):before {
+  transition-delay: 1.0535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(16):before {
+  transition-delay: 1.0285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(17):before {
+  transition-delay: 1.0035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(18):before {
+  transition-delay: 0.9785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(19):before {
+  transition-delay: 0.9535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .headings h1:nth-of-type(3) .word:nth-of-type(3) .char:nth-of-type(20):before {
+  transition-delay: 0.9285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .slides {
+  transform: translateX(-150%);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .slides .slide:nth-of-type(3) + .slide {
+  margin-right: 37.5%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .slides .slide:nth-of-type(4) + .slide {
+  margin-right: 25%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .slides .slide:nth-of-type(5) + .slide {
+  margin-right: 40%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .slides .slide:nth-of-type(3) {
+  transform: translateX(200%) scaleY(1);
+  transition-delay: 0.4s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .slides .slide:nth-of-type(3):after {
+  transition: all 0.2s cubic-bezier(1, 0.885, 0.72, 1);
+  transform: scaleY(0);
+  transition-delay: 0.8s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked ~ .slides .slide:nth-of-type(3):before {
+  transition: transform 5s ease-in-out, opacity 3s ease-in-out;
+  transform: scale(1);
+  opacity: 0.15;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input {
+  z-index: 4;
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked + input + input + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked:first-of-type:checked ~ .nav .arrow:first-of-type {
+  opacity: 0.25;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked:nth-of-type(6) {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type {
+  opacity: 0.25;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type:before, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type:after, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked:nth-of-type(6):hover ~ .nav .arrow:first-of-type:before, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked:nth-of-type(6):checked ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked:nth-of-type(6):hover ~ .nav .arrow:first-of-type:after, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(3):checked:nth-of-type(6):checked ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .bg {
+  transition-delay: 1s;
+  transform: scaleX(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ a {
+  color: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings p {
+  color: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1 .char:before {
+  color: #fb6962;
+  -webkit-text-stroke: 0px #fb6962;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .bg {
+  transition-delay: 1s;
+  background: #325dc6;
+  transform: scaleX(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings p:before {
+  transition: transform 0.3s ease-in-out;
+  transition-delay: 0.3s;
+  background: #ffc666;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:after {
+  background: #ffc666;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1 .char:before {
+  color: #fb6962;
+  -webkit-text-stroke: 0px #fb6962;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4) {
+  position: relative;
+  z-index: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked {
+  z-index: 0;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .back p:nth-of-type(4) {
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ a {
+  animation: jumpin4 2s ease-in-out 1 forwards;
+}
+@keyframes jumpin4 {
+  0% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  25% {
+    transform: translateX(-50%) translateY(200px);
+  }
+  75% {
+    transform: translateX(-50%) translateY(200px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings p:nth-of-type(4) {
+  transform: scaleX(1);
+  transition-delay: 1.5s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings p:nth-of-type(4):before {
+  transition-delay: 1.8s;
+  transform: scaleX(0);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4):after {
+  transform: translateX(0);
+  transition: all 1s cubic-bezier(1, 0.885, 0.72, 1);
+  transition-delay: 0.75s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) span {
+  transition-delay: 0.75s;
+  transform: scale(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) span.whitespace {
+  width: 2.5%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(1):before {
+  transition-delay: 1.1178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(2):before {
+  transition-delay: 1.0928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(3):before {
+  transition-delay: 1.0678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(4):before {
+  transition-delay: 1.0428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(5):before {
+  transition-delay: 1.0178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(6):before {
+  transition-delay: 0.9928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(7):before {
+  transition-delay: 0.9678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(8):before {
+  transition-delay: 0.9428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(9):before {
+  transition-delay: 0.9178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(10):before {
+  transition-delay: 0.8928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(11):before {
+  transition-delay: 0.8678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(12):before {
+  transition-delay: 0.8428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(13):before {
+  transition-delay: 0.8178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(14):before {
+  transition-delay: 0.7928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(15):before {
+  transition-delay: 0.7678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(16):before {
+  transition-delay: 0.7428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(17):before {
+  transition-delay: 0.7178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(18):before {
+  transition-delay: 0.6928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(19):before {
+  transition-delay: 0.6678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(1) .char:nth-of-type(20):before {
+  transition-delay: 0.6428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(1):before {
+  transition-delay: 1.2607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(2):before {
+  transition-delay: 1.2357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(3):before {
+  transition-delay: 1.2107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(4):before {
+  transition-delay: 1.1857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(5):before {
+  transition-delay: 1.1607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(6):before {
+  transition-delay: 1.1357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(7):before {
+  transition-delay: 1.1107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(8):before {
+  transition-delay: 1.0857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(9):before {
+  transition-delay: 1.0607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(10):before {
+  transition-delay: 1.0357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(11):before {
+  transition-delay: 1.0107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(12):before {
+  transition-delay: 0.9857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(13):before {
+  transition-delay: 0.9607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(14):before {
+  transition-delay: 0.9357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(15):before {
+  transition-delay: 0.9107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(16):before {
+  transition-delay: 0.8857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(17):before {
+  transition-delay: 0.8607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(18):before {
+  transition-delay: 0.8357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(19):before {
+  transition-delay: 0.8107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(2) .char:nth-of-type(20):before {
+  transition-delay: 0.7857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(1):before {
+  transition-delay: 1.4035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(2):before {
+  transition-delay: 1.3785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(3):before {
+  transition-delay: 1.3535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(4):before {
+  transition-delay: 1.3285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(5):before {
+  transition-delay: 1.3035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(6):before {
+  transition-delay: 1.2785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(7):before {
+  transition-delay: 1.2535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(8):before {
+  transition-delay: 1.2285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(9):before {
+  transition-delay: 1.2035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(10):before {
+  transition-delay: 1.1785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(11):before {
+  transition-delay: 1.1535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(12):before {
+  transition-delay: 1.1285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(13):before {
+  transition-delay: 1.1035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(14):before {
+  transition-delay: 1.0785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(15):before {
+  transition-delay: 1.0535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(16):before {
+  transition-delay: 1.0285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(17):before {
+  transition-delay: 1.0035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(18):before {
+  transition-delay: 0.9785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(19):before {
+  transition-delay: 0.9535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1:nth-of-type(4) .word:nth-of-type(3) .char:nth-of-type(20):before {
+  transition-delay: 0.9285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .slides {
+  transform: translateX(-200%);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .slides .slide:nth-of-type(3) + .slide {
+  margin-right: 37.5%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .slides .slide:nth-of-type(4) + .slide {
+  margin-right: 25%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .slides .slide:nth-of-type(5) + .slide {
+  margin-right: 40%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .slides .slide:nth-of-type(4) {
+  transform: translateX(300%) scaleY(1);
+  transition-delay: 0.4s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .slides .slide:nth-of-type(4):after {
+  transition: all 0.2s cubic-bezier(1, 0.885, 0.72, 1);
+  transform: scaleY(0);
+  transition-delay: 0.8s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .slides .slide:nth-of-type(4):before {
+  transition: transform 5s ease-in-out, opacity 3s ease-in-out;
+  transform: scale(1);
+  opacity: 0.15;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input {
+  z-index: 5;
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked + input + input + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked:first-of-type:checked ~ .nav .arrow:first-of-type {
+  opacity: 0.25;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked:nth-of-type(6) {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type {
+  opacity: 0.25;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type:before, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type:after, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked:nth-of-type(6):hover ~ .nav .arrow:first-of-type:before, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked:nth-of-type(6):checked ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked:nth-of-type(6):hover ~ .nav .arrow:first-of-type:after, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked:nth-of-type(6):checked ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .bg {
+  transition-delay: 1s;
+  transform: scaleX(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ a {
+  color: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings p {
+  color: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1 .char:before {
+  color: #fb6962;
+  -webkit-text-stroke: 0px #fb6962;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .bg {
+  transition-delay: 1s;
+  background: #325dc6;
+  transform: scaleX(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings p:before {
+  transition: transform 0.3s ease-in-out;
+  transition-delay: 0.3s;
+  background: #ffc666;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:after {
+  background: #ffc666;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1 .char:before {
+  color: #fb6962;
+  -webkit-text-stroke: 0px #fb6962;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5) {
+  position: relative;
+  z-index: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked {
+  z-index: 0;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .back p:nth-of-type(5) {
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ a {
+  animation: jumpin5 2s ease-in-out 1 forwards;
+}
+@keyframes jumpin5 {
+  0% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  25% {
+    transform: translateX(-50%) translateY(200px);
+  }
+  75% {
+    transform: translateX(-50%) translateY(200px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings p:nth-of-type(5) {
+  transform: scaleX(1);
+  transition-delay: 1.5s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings p:nth-of-type(5):before {
+  transition-delay: 1.8s;
+  transform: scaleX(0);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5):after {
+  transform: translateX(0);
+  transition: all 1s cubic-bezier(1, 0.885, 0.72, 1);
+  transition-delay: 0.75s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) span {
+  transition-delay: 0.75s;
+  transform: scale(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) span.whitespace {
+  width: 2.5%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(1):before {
+  transition-delay: 1.1178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(2):before {
+  transition-delay: 1.0928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(3):before {
+  transition-delay: 1.0678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(4):before {
+  transition-delay: 1.0428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(5):before {
+  transition-delay: 1.0178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(6):before {
+  transition-delay: 0.9928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(7):before {
+  transition-delay: 0.9678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(8):before {
+  transition-delay: 0.9428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(9):before {
+  transition-delay: 0.9178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(10):before {
+  transition-delay: 0.8928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(11):before {
+  transition-delay: 0.8678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(12):before {
+  transition-delay: 0.8428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(13):before {
+  transition-delay: 0.8178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(14):before {
+  transition-delay: 0.7928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(15):before {
+  transition-delay: 0.7678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(16):before {
+  transition-delay: 0.7428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(17):before {
+  transition-delay: 0.7178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(18):before {
+  transition-delay: 0.6928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(19):before {
+  transition-delay: 0.6678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(1) .char:nth-of-type(20):before {
+  transition-delay: 0.6428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(1):before {
+  transition-delay: 1.2607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(2):before {
+  transition-delay: 1.2357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(3):before {
+  transition-delay: 1.2107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(4):before {
+  transition-delay: 1.1857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(5):before {
+  transition-delay: 1.1607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(6):before {
+  transition-delay: 1.1357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(7):before {
+  transition-delay: 1.1107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(8):before {
+  transition-delay: 1.0857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(9):before {
+  transition-delay: 1.0607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(10):before {
+  transition-delay: 1.0357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(11):before {
+  transition-delay: 1.0107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(12):before {
+  transition-delay: 0.9857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(13):before {
+  transition-delay: 0.9607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(14):before {
+  transition-delay: 0.9357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(15):before {
+  transition-delay: 0.9107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(16):before {
+  transition-delay: 0.8857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(17):before {
+  transition-delay: 0.8607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(18):before {
+  transition-delay: 0.8357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(19):before {
+  transition-delay: 0.8107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(2) .char:nth-of-type(20):before {
+  transition-delay: 0.7857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(1):before {
+  transition-delay: 1.4035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(2):before {
+  transition-delay: 1.3785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(3):before {
+  transition-delay: 1.3535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(4):before {
+  transition-delay: 1.3285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(5):before {
+  transition-delay: 1.3035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(6):before {
+  transition-delay: 1.2785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(7):before {
+  transition-delay: 1.2535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(8):before {
+  transition-delay: 1.2285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(9):before {
+  transition-delay: 1.2035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(10):before {
+  transition-delay: 1.1785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(11):before {
+  transition-delay: 1.1535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(12):before {
+  transition-delay: 1.1285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(13):before {
+  transition-delay: 1.1035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(14):before {
+  transition-delay: 1.0785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(15):before {
+  transition-delay: 1.0535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(16):before {
+  transition-delay: 1.0285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(17):before {
+  transition-delay: 1.0035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(18):before {
+  transition-delay: 0.9785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(19):before {
+  transition-delay: 0.9535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .headings h1:nth-of-type(5) .word:nth-of-type(3) .char:nth-of-type(20):before {
+  transition-delay: 0.9285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .slides {
+  transform: translateX(-250%);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .slides .slide:nth-of-type(3) + .slide {
+  margin-right: 37.5%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .slides .slide:nth-of-type(4) + .slide {
+  margin-right: 25%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .slides .slide:nth-of-type(5) + .slide {
+  margin-right: 40%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .slides .slide:nth-of-type(5) {
+  transform: translateX(400%) scaleY(1);
+  transition-delay: 0.4s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .slides .slide:nth-of-type(5):after {
+  transition: all 0.2s cubic-bezier(1, 0.885, 0.72, 1);
+  transform: scaleY(0);
+  transition-delay: 0.8s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked ~ .slides .slide:nth-of-type(5):before {
+  transition: transform 5s ease-in-out, opacity 3s ease-in-out;
+  transform: scale(1);
+  opacity: 0.15;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input {
+  z-index: 6;
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked + input + input + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked:first-of-type:checked ~ .nav .arrow:first-of-type {
+  opacity: 0.25;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked:nth-of-type(6) {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type {
+  opacity: 0.25;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type:before, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type:after, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked:nth-of-type(6):hover ~ .nav .arrow:first-of-type:before, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked:nth-of-type(6):checked ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked:nth-of-type(6):hover ~ .nav .arrow:first-of-type:after, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(5):checked:nth-of-type(6):checked ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .bg {
+  transition-delay: 1s;
+  transform: scaleX(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ a {
+  color: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings p {
+  color: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(4):checked ~ .headings h1 .char:before {
+  color: #fb6962;
+  -webkit-text-stroke: 0px #fb6962;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .bg {
+  transition-delay: 1s;
+  background: #325dc6;
+  transform: scaleX(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings p:before {
+  transition: transform 0.3s ease-in-out;
+  transition-delay: 0.3s;
+  background: #ffc666;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:after {
+  background: #ffc666;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1 .char:before {
+  color: #fb6962;
+  -webkit-text-stroke: 0px #fb6962;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6) {
+  position: relative;
+  z-index: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked {
+  z-index: 0;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .back p:nth-of-type(6) {
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ a {
+  animation: jumpin6 2s ease-in-out 1 forwards;
+}
+@keyframes jumpin6 {
+  0% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  25% {
+    transform: translateX(-50%) translateY(200px);
+  }
+  75% {
+    transform: translateX(-50%) translateY(200px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings p:nth-of-type(6) {
+  transform: scaleX(1);
+  transition-delay: 1.5s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings p:nth-of-type(6):before {
+  transition-delay: 1.8s;
+  transform: scaleX(0);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6):after {
+  transform: translateX(0);
+  transition: all 1s cubic-bezier(1, 0.885, 0.72, 1);
+  transition-delay: 0.75s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) span {
+  transition-delay: 0.75s;
+  transform: scale(1);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) span.whitespace {
+  width: 2.5%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(1):before {
+  transition-delay: 1.1178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(2):before {
+  transition-delay: 1.0928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(3):before {
+  transition-delay: 1.0678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(4):before {
+  transition-delay: 1.0428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(5):before {
+  transition-delay: 1.0178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(6):before {
+  transition-delay: 0.9928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(7):before {
+  transition-delay: 0.9678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(8):before {
+  transition-delay: 0.9428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(9):before {
+  transition-delay: 0.9178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(10):before {
+  transition-delay: 0.8928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(11):before {
+  transition-delay: 0.8678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(12):before {
+  transition-delay: 0.8428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(13):before {
+  transition-delay: 0.8178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(14):before {
+  transition-delay: 0.7928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(15):before {
+  transition-delay: 0.7678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(16):before {
+  transition-delay: 0.7428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(17):before {
+  transition-delay: 0.7178571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(18):before {
+  transition-delay: 0.6928571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(19):before {
+  transition-delay: 0.6678571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(1) .char:nth-of-type(20):before {
+  transition-delay: 0.6428571429s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(1):before {
+  transition-delay: 1.2607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(2):before {
+  transition-delay: 1.2357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(3):before {
+  transition-delay: 1.2107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(4):before {
+  transition-delay: 1.1857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(5):before {
+  transition-delay: 1.1607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(6):before {
+  transition-delay: 1.1357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(7):before {
+  transition-delay: 1.1107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(8):before {
+  transition-delay: 1.0857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(9):before {
+  transition-delay: 1.0607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(10):before {
+  transition-delay: 1.0357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(11):before {
+  transition-delay: 1.0107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(12):before {
+  transition-delay: 0.9857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(13):before {
+  transition-delay: 0.9607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(14):before {
+  transition-delay: 0.9357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(15):before {
+  transition-delay: 0.9107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(16):before {
+  transition-delay: 0.8857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(17):before {
+  transition-delay: 0.8607142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(18):before {
+  transition-delay: 0.8357142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(19):before {
+  transition-delay: 0.8107142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(2) .char:nth-of-type(20):before {
+  transition-delay: 0.7857142857s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(1):before {
+  transition-delay: 1.4035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(2):before {
+  transition-delay: 1.3785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(3):before {
+  transition-delay: 1.3535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(4):before {
+  transition-delay: 1.3285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(5):before {
+  transition-delay: 1.3035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(6):before {
+  transition-delay: 1.2785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(7):before {
+  transition-delay: 1.2535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(8):before {
+  transition-delay: 1.2285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(9):before {
+  transition-delay: 1.2035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(10):before {
+  transition-delay: 1.1785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(11):before {
+  transition-delay: 1.1535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(12):before {
+  transition-delay: 1.1285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(13):before {
+  transition-delay: 1.1035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(14):before {
+  transition-delay: 1.0785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(15):before {
+  transition-delay: 1.0535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(16):before {
+  transition-delay: 1.0285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(17):before {
+  transition-delay: 1.0035714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(18):before {
+  transition-delay: 0.9785714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(19):before {
+  transition-delay: 0.9535714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .headings h1:nth-of-type(6) .word:nth-of-type(3) .char:nth-of-type(20):before {
+  transition-delay: 0.9285714286s;
+  transform: translateY(0) skewY(0);
+  opacity: 1;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .slides {
+  transform: translateX(-300%);
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .slides .slide:nth-of-type(3) + .slide {
+  margin-right: 37.5%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .slides .slide:nth-of-type(4) + .slide {
+  margin-right: 25%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .slides .slide:nth-of-type(5) + .slide {
+  margin-right: 40%;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .slides .slide:nth-of-type(6) {
+  transform: translateX(500%) scaleY(1);
+  transition-delay: 0.4s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .slides .slide:nth-of-type(6):after {
+  transition: all 0.2s cubic-bezier(1, 0.885, 0.72, 1);
+  transform: scaleY(0);
+  transition-delay: 0.8s;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked ~ .slides .slide:nth-of-type(6):before {
+  transition: transform 5s ease-in-out, opacity 3s ease-in-out;
+  transform: scale(1);
+  opacity: 0.15;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input {
+  z-index: 7;
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input + input:hover ~ .nav .arrow:last-of-type:after {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input + input:hover ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input + input + input + input {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input + input + input + input:hover ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked + input + input + input + input + input:hover ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked:first-of-type:checked ~ .nav .arrow:first-of-type {
+  opacity: 0.25;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked:nth-of-type(6) {
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type {
+  opacity: 0.25;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type:before, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked:nth-of-type(6):hover ~ .nav .arrow:last-of-type:after, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked:nth-of-type(6):checked ~ .nav .arrow:last-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked:nth-of-type(6):hover ~ .nav .arrow:first-of-type:before, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked:nth-of-type(6):checked ~ .nav .arrow:first-of-type:before {
+  background: #051439;
+}
+.general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked:nth-of-type(6):hover ~ .nav .arrow:first-of-type:after, .general-contract .carousel #wrapper input[type=radio]:nth-of-type(6):checked:nth-of-type(6):checked ~ .nav .arrow:first-of-type:after {
+  background: #a5e1ef;
+}
+.general-contract .carousel #wrapper .slides {
+  overflow: visible;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(1, 0.885, 0.72, 1);
+  bottom: 0;
+}
+.general-contract .carousel #wrapper .slides .slide {
+  grid-column: 1/span 8;
+  grid-row: 1/span 8;
+  transform-origin: top;
+  overflow: hidden;
+  height: calc(100% + 10px);
+}
+.general-contract .carousel #wrapper .slides .slide:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #fb6962;
+  transform-origin: bottom;
+  transform: scaleY(1);
+  transition: all 0.3s cubic-bezier(1, 0.885, 0.72, 1);
+  transition-delay: 0.3s;
+}
+.general-contract .carousel #wrapper .slides .slide:nth-of-type(even):after {
+  background: #ffc666;
+}
+.general-contract .carousel #wrapper .slides .slide:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transform: scale(1.5);
+}
+.general-contract .carousel #wrapper .slides .slide:nth-of-type(1) {
+  transform: translateX(0%) scaleY(0);
+  transition: all 0.3s cubic-bezier(1, 0.885, 0.72, 1);
+  transition-delay: 0.5s;
+}
+.general-contract .carousel #wrapper .slides .slide:nth-of-type(1):before {
+  background-image: url("../../img/general-contract/image1.jpeg");
+  background-size: cover;
+  background-position: center;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  opacity: 0;
+  filter: saturate(0) brightness(1.5) contrast(3);
+}
+.general-contract .carousel #wrapper .slides .slide:nth-of-type(2) {
+  transform: translateX(100%) scaleY(0);
+  transition: all 0.3s cubic-bezier(1, 0.885, 0.72, 1);
+  transition-delay: 0.5s;
+}
+.general-contract .carousel #wrapper .slides .slide:nth-of-type(2):before {
+  background-image: url("../../img/general-contract/image2.jpeg");
+  background-size: cover;
+  background-position: center;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  opacity: 0;
+  filter: saturate(0) brightness(1.5) contrast(3);
+}
+.general-contract .carousel #wrapper .slides .slide:nth-of-type(3) {
+  transform: translateX(200%) scaleY(0);
+  transition: all 0.3s cubic-bezier(1, 0.885, 0.72, 1);
+  transition-delay: 0.5s;
+}
+.general-contract .carousel #wrapper .slides .slide:nth-of-type(3):before {
+  background-image: url("../../img/general-contract/image3.jpeg");
+  background-size: cover;
+  background-position: center;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  opacity: 0;
+  filter: saturate(0) brightness(1.5) contrast(3);
+}
+.general-contract .carousel #wrapper .slides .slide:nth-of-type(4) {
+  transform: translateX(300%) scaleY(0);
+  transition: all 0.3s cubic-bezier(1, 0.885, 0.72, 1);
+  transition-delay: 0.5s;
+}
+.general-contract .carousel #wrapper .slides .slide:nth-of-type(4):before {
+  background-image: url("../../img/general-contract/image4.jpeg");
+  background-size: cover;
+  background-position: center;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  opacity: 0;
+  filter: saturate(0) brightness(1.5) contrast(3);
+}
+.general-contract .carousel #wrapper .slides .slide:nth-of-type(5) {
+  transform: translateX(400%) scaleY(0);
+  transition: all 0.3s cubic-bezier(1, 0.885, 0.72, 1);
+  transition-delay: 0.5s;
+}
+.general-contract .carousel #wrapper .slides .slide:nth-of-type(5):before {
+  background-image: url("../../img/general-contract/image5.jpeg");
+  background-size: cover;
+  background-position: center;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  opacity: 0;
+  filter: saturate(0) brightness(1.5) contrast(3);
+}
+.general-contract .carousel #wrapper .slides .slide:nth-of-type(6) {
+  transform: translateX(500%) scaleY(0);
+  transition: all 0.3s cubic-bezier(1, 0.885, 0.72, 1);
+  transition-delay: 0.5s;
+}
+.general-contract .carousel #wrapper .slides .slide:nth-of-type(6):before {
+  background-image: url("../../img/general-contract/image6.jpeg");
+  background-size: cover;
+  background-position: center;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  opacity: 0;
+  filter: saturate(0) brightness(1.5) contrast(3);
+}
+.general-contract .carousel #wrapper .headings {
+  transition: all 0.6s cubic-bezier(1, 0.885, 0.72, 1);
+  transform-origin: left;
+}
+.general-contract .carousel #wrapper .nav,
+.general-contract .carousel #wrapper .slides,
+.general-contract .carousel #wrapper .headings {
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: inherit;
+  grid-template-rows: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+.general-contract .carousel #wrapper .nav .arrow,
+.general-contract .carousel #wrapper .slides .arrow,
+.general-contract .carousel #wrapper .headings .arrow {
+  position: relative;
+  transition: 0.2s ease-in-out;
+  width: 100%;
+}
+.general-contract .carousel #wrapper .nav .arrow:before, .general-contract .carousel #wrapper .nav .arrow:after,
+.general-contract .carousel #wrapper .slides .arrow:before,
+.general-contract .carousel #wrapper .slides .arrow:after,
+.general-contract .carousel #wrapper .headings .arrow:before,
+.general-contract .carousel #wrapper .headings .arrow:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #051439;
+  left: 0;
+  top: 0;
+  transition: 0.2s ease-in-out;
+  box-shadow: inset 0 0 0 0.5px #a5e1ef;
+}
+.general-contract .carousel #wrapper .nav .arrow:after,
+.general-contract .carousel #wrapper .slides .arrow:after,
+.general-contract .carousel #wrapper .headings .arrow:after {
+  background: #a5e1ef;
+  clip-path: polygon(0 0, 0% 100%, 100% 50%);
+  z-index: 2;
+  width: 25%;
+  height: 30%;
+  left: 37.5%;
+  top: 33%;
+}
+.general-contract .carousel #wrapper .nav .arrow:first-of-type,
+.general-contract .carousel #wrapper .slides .arrow:first-of-type,
+.general-contract .carousel #wrapper .headings .arrow:first-of-type {
+  grid-row: 4/span 1;
+  grid-column: 5;
+}
+.general-contract .carousel #wrapper .nav .arrow:first-of-type:after,
+.general-contract .carousel #wrapper .slides .arrow:first-of-type:after,
+.general-contract .carousel #wrapper .headings .arrow:first-of-type:after {
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+}
+.general-contract .carousel #wrapper .nav .arrow:last-of-type,
+.general-contract .carousel #wrapper .slides .arrow:last-of-type,
+.general-contract .carousel #wrapper .headings .arrow:last-of-type {
+  grid-row: 4/span 1;
+  grid-column: 6;
+}
+.general-contract .carousel #wrapper a {
+  font-family: "Inconsolata";
+  color: #fff;
+  font-size: 20px;
+  text-align: right;
+  position: absolute;
+  display: flex;
+  padding: 10px;
+  transition: transform 0.1s ease-in-out;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+}
+.general-contract .carousel #wrapper a span {
+  font-size: 0;
+  opacity: 0;
+}
+.general-contract .carousel #wrapper a:before, .general-contract .carousel #wrapper a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fb6962;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  transition: all 0.1s cubic-bezier(1, 0.885, 0.72, 1);
+  transform-origin: bottom;
+  transform: scaleY(0);
+}
+.general-contract .carousel #wrapper a:after {
+  background: #fff;
+  left: -2.5%;
+  top: -5%;
+  z-index: -3;
+  width: 105%;
+  height: 110%;
+  transform-origin: top;
+  transition-delay: 0.1s;
+}
+.general-contract .carousel #wrapper .headings {
+  z-index: 9;
+  backface-visibility: hidden;
+}
+.general-contract .carousel #wrapper .headings p {
+  font-family: "Inconsolata";
+  grid-row: 4/span 1;
+  grid-column: 1/span 4;
+  padding-left: 10%;
+  font-size: 18px;
+  color: #fff;
+  transition: all 0.3s cubic-bezier(1, 0.885, 0.72, 1);
+  transition-delay: 0.4s;
+  transform-origin: right;
+  transform: scaleX(0);
+  display: block;
+  position: relative;
+  text-align: right;
+  line-height: 1.5;
+}
+.general-contract .carousel #wrapper .headings p:before {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 500%;
+  right: 0;
+  top: 0;
+  background: #325dc6;
+  transition: all 0.3s cubic-bezier(1, 0.885, 0.72, 1);
+  transform-origin: left;
+}
+.general-contract .carousel #wrapper .headings h1 {
+  color: transparent;
+  grid-row: 4/span 1;
+  grid-column: 1/span 4;
+  text-align: right;
+  display: inline-block;
+  padding-left: 5%;
+  font-size: 70px;
+  line-height: 1;
+  margin: 0;
+  font-family: "Gentium Basic";
+  position: relative;
+  transform: translateY(-150%) translateZ(200px);
+  transition: 0.5s ease-in-out;
+}
+.general-contract .carousel #wrapper .headings h1:after {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 2px;
+  background: #ffc666;
+  right: 0;
+  bottom: -50%;
+  transition: all 0.2s cubic-bezier(1, 0.885, 0.72, 1);
+  transform: translateX(-100%);
+}
+.general-contract .carousel #wrapper .headings h1 * {
+  position: relative;
+}
+.general-contract .carousel #wrapper .headings h1 span {
+  display: inline-block;
+  transition: all 0.8s cubic-bezier(1, 0.885, 0.72, 1);
+  transform: scale(0.75);
+}
+.general-contract .carousel #wrapper .headings h1 span .char:before {
+  visibility: visible;
+  color: #a5e1ef;
+  transform: translateY(150%) skewY(-30deg);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: rgba(255, 255, 255, 0);
+  -webkit-text-stroke: 1.5px #fb6962;
+}
+
+.business .what-we-offer__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

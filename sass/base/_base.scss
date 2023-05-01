@@ -77,11 +77,12 @@ body {
   }
 }
 .company-logo {
-  width: 16rem;
+  width: 26rem;
   cursor: pointer;
   background-image: url(../../img/logo.png);
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
   & + .logo {
     margin-left: 1rem;
   }
